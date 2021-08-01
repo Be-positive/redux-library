@@ -1,0 +1,53 @@
+section {
+  margin-top: 0em;
+  margin-right: 0em;
+  margin-left: 0em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section h1 {
+  margin-top: 6.5em;
+  text-align: center;
+}
+
+Footer {
+  margin-left: 0.5em;
+  width: 99vw;
+}
+
+@media only screen and (max-width: 1508px) {
+  Footer {
+    margin-left: 0.7em;
+    width: 98vw;
+  }
+}
+
+@media only screen and (max-width: 908px) {
+  Footer {
+    margin-left: 0.8em;
+    width: 97vw;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  Footer {
+    margin-left: 0.8em;
+    width: 96vw;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  Footer {
+    margin-left: 0em;
+    width: 98.5vw;
+  }
+}
+/*# sourceMappingURL=error.css.map */

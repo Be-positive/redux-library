@@ -1,0 +1,23 @@
+main {
+  list-style-type: none;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -ms-grid-columns: (minmax(100px, 23%))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(100px, 23%));
+  gap: 0rem 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media only screen and (max-width: 900px) {
+  main {
+    -ms-grid-columns: (minmax(100px, 48%))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(100px, 48%));
+  }
+}
+/*# sourceMappingURL=BookList.css.map */

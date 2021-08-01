@@ -1,0 +1,14 @@
+main {
+  list-style-type: none;
+  display: grid;
+  flex-flow: column;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 23%));
+  gap: 0rem 1rem;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 900px) {
+  main {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 48%));
+  }
+}
