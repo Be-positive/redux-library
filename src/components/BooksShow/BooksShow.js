@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
-import { Grid, Row, Table, Col } from 'react-bootstrap';
-import BookRow from '../BookList/BookRow';
+import BookDetail from './BookDetail/BookDetail';
+import './BooksShow.css'
+/* import BookRow from '../BookList/BookRow'; */
 /* import { Row } from 'react-bootstrap'; */
 /* import SearchBar from '../SearchBar/SearchBar';
 import { browserHistory } from 'react-router'; */
@@ -30,38 +31,25 @@ class BooksShow extends Component {
 
   render(){
     return(    
-      <Grid>
+      <main className='bookDescribtion'>
         {/* <SearchBar component={browserHistory}/> */}        
-        <Row>
-          <Table>
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Authors</th>
-                <th>Date of Publication</th>
-              </tr>
-            </thead>
-            <tbody>
+        <div className='bookInfo'>
+          <div>            
               {!!this.state.bookItem &&
-              <BookRow book={this.state.bookItem} bookShow={true}/>}
-            </tbody>
-          </Table>
-        </Row>
-        <Row>
-          <Col xs={6} xsOffset={6}>
-            <Link to='/'>Back</Link>
-          </Col>
-        </Row>
-      </Grid>
+              <BookDetail book={this.state.bookItem} bookShow={true}/>}            
+          </div>
+        </div>
+        <div className='backBtn' onClick={(e) => e.preventDefault()}>          
+            <Link className='linkBtn' to='/'> Back to Homepage </Link>
+        </div>
+      </main>
     )
   }
 }
 
 function mapStateToProps(state){
   return {
-    books: state.books.all
+    books: state.books.all    
   }
 }
 

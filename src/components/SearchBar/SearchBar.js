@@ -8,7 +8,7 @@ import './SearchBar.css';
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {subject: "", book: '',maxResults: 4, startIndex: 0};
+    this.state = {subject: "", book: '',maxResults: 4, startIndex: 0, orderBy:"relevance"};
   }
 
   handleChange(event) {
@@ -42,9 +42,8 @@ class SearchBar extends Component {
     }  
     else if(this.state.orderBy !== prevState.orderBy){
       this.handleSubmit(event);
-    }    
-      
-    
+    }  
+          
   }
   /* componentUpdated(prevProps, prevState){
     if(this.state.orderBy !== prevState.orderBy){
@@ -152,7 +151,7 @@ class SearchBar extends Component {
         </div> 
         {this.props.books && !!this.state.book &&
           <div className='pageSlots'>
-            <BooksPagination /* onChange={this.handleDisplayIndexChange.bind(this)} */  searchQuery={this.state.book} resultsPerPage={this.state.maxResults} startIndex={this.state.maxResults}/>
+            <BooksPagination /* onChange={this.handleDisplayIndexChange.bind(this)} */ searchQuery={`${this.state.book} ${this.state.subject}`} resultsPerPage={this.state.maxResults} startIndex={this.state.maxResults} orderBy={this.state.orderBy} />
           </div>
         }
       </nav>
@@ -162,7 +161,8 @@ class SearchBar extends Component {
 
 function mapStateToProps(state){
   return {
-    books: state.books.all
+    books: state.books.all   
+    
   }
 }
 

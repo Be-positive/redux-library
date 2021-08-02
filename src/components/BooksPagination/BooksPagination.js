@@ -18,7 +18,7 @@ class BooksPagination extends Component {
   componentDidUpdate(prevProps, prevState){    
     if(this.state.activePage !== prevState.activePage){
       this.props.fetchBooks(
-        !!this.props.searchQuery ? this.props.searchQuery : this.props.lastSearchQuery, this.props.resultsPerPage, this.state.activePage * this.props.resultsPerPage
+        !!this.props.searchQuery ? this.props.searchQuery : this.props.lastSearchQuery, /* `${this.state.book} ${this.state.subject}`, this.state.orderBy, */ this.props.resultsPerPage, this.state.activePage * this.props.resultsPerPage
       );
     }
   }
@@ -45,7 +45,8 @@ class BooksPagination extends Component {
 function mapStateToProps(state){
   return {
     books: state.books.all,
-    lastSearchQuery: state.books.lastSearchQuery
+    lastSearchQuery: state.books.lastSearchQuery,
+    orderBy: state.oderBy,
   }
 }
 

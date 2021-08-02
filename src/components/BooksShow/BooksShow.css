@@ -1,0 +1,21 @@
+.bookDescribtion {
+  display: flex;
+  flex-direction: column;
+  background-color: bisque;
+}
+.bookDescribtion .backBtn {
+  display: flex;
+  justify-content: center;
+}
+.bookDescribtion .backBtn {
+  padding: 0.2em 2em;
+  font-size: 1.2em;
+  border-radius: 5%;
+}
+.bookDescribtion .backBtn .linkBtn {
+  color: black;
+  text-decoration: underline;
+}
+.bookDescribtion .backBtn .linkBtn:hover {
+  color: red;
+}

@@ -28,9 +28,7 @@ function fetchingBooks(lastSearchQuery, maxResults, orderBy,  startIndex,) {
       searchQuery: lastSearchQuery,                      
       maxResults: maxResults,
       startIndex: startIndex, 
-      orderBy: orderBy,      
-              
-            
+      orderBy: orderBy,    
       'x-apikey': 'API_KEY', 
                    
       /* orderBy: 'newest', */
