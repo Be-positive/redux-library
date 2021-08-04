@@ -8,6 +8,7 @@ class BooksPagination extends Component {
   constructor(props) {
     super(props);
     this.state = { activePage: 1 };
+    this.props.orderBy = "newest";
   }
 
   handleSelect(eventKey) {
@@ -28,9 +29,11 @@ class BooksPagination extends Component {
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state, props){
   return {
-    books: state.books.all
+    books: state.books.all,
+    /* orderBy: state.orderBy, */
+    orderBy: props.orderBy
   }
 }
 

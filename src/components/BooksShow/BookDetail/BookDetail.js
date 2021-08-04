@@ -3,7 +3,8 @@ import { browserHistory } from 'react-router';
 import './BookDetail.css';
 
 const BookDetail = (props) => { 
-    /* console.log(props.book.volumeInfo) */   
+    console.log(props.book.volumeInfo.categories)
+    console.log(props.book)   
     return (
         <div className='book'>
           <ul className='bookDetail' onClick={() => browserHistory.push(`/${props.resultNumber}`)}>

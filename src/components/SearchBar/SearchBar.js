@@ -114,7 +114,7 @@ class SearchBar extends Component {
                     </div>
                   } */}               
                                                                                                                                                                                    
-                  { !!books.totalItems && !!this.state.book &&
+                  { /* !!books.totalItems && */ !!this.state.book &&
                   <div>
                     <label htmlFor="sorting">Sorting By</label>
                     <select id='sorting' value={this.state.orderBy} onChange={this.handleDisplaySortingChange.bind(this)} className='sorting' name="select">             
@@ -124,18 +124,19 @@ class SearchBar extends Component {
                   </div>
                   } 
 
-                  { !!books.totalItems && !!this.state.book &&
+                  { /* !!books.totalItems && */ !!this.state.book &&
                   <div>
                     <label htmlFor="categories">Categories</label>
                     <select id='categories' value={this.state.subject} onChange={this.handleDisplayCategoryChange.bind(this)} className='sorting' name="filtoring">             
                       <option value="">all</option>
                       <option value="art" >art</option>            
-                      <option value="biograpthy" >biograpthy</option>            
+                      <option value="biography" >biography</option>            
                       <option value="computers" >computers</option>            
                       <option value="history">history</option>            
                       <option value="medical">medical</option>            
                       <option value="poetry">poetry</option>            
                     </select>
+                    {/* this one is not category, just +q, which is unneccassary!!! You need to  work with Books Detail! */}
                   </div>
                   }
                 </div>             
@@ -149,9 +150,9 @@ class SearchBar extends Component {
         <div className='resultsQuant'>
             <a href="#"> {books.totalItems ? `Found ${books.totalItems} results`: '' }</a>
         </div> 
-        {this.props.books && !!this.state.book &&
-          <div className='pageSlots'>
-            <BooksPagination /* onChange={this.handleDisplayIndexChange.bind(this)} */ searchQuery={`${this.state.book} ${this.state.subject}`} resultsPerPage={this.state.maxResults} startIndex={this.state.maxResults} orderBy={this.state.orderBy} />
+        {this.props.books && !!this.state.book &&          
+          <div className='pageSlots'>            
+            <BooksPagination {...console.log(this.props.orderBy)} /* onChange={this.handleDisplayIndexChange.bind(this)} */ searchQuery={`${this.state.book} ${this.state.subject}`} resultsPerPage={this.state.maxResults} startIndex={this.state.maxResults} /* maxResults={this.state.maxResults} */ orderBy={this.state.orderBy} /*   */ />
           </div>
         }
       </nav>
@@ -159,10 +160,10 @@ class SearchBar extends Component {
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state, props){  
   return {
-    books: state.books.all   
-    
+    books: state.books.all,    
+    orderBy: props.orderBy,     
   }
 }
 

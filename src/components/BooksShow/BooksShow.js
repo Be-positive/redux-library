@@ -17,7 +17,6 @@ class BooksShow extends Component {
 
   constructor(props){
     super(props);
-
     this.state = {bookItem: ''}
   }
 
@@ -35,7 +34,7 @@ class BooksShow extends Component {
         {/* <SearchBar component={browserHistory}/> */}        
         <div className='bookInfo'>
           <div>            
-              {!!this.state.bookItem &&
+              {!!this.state.bookItem && /* !!this.state.book && */
               <BookDetail book={this.state.bookItem} bookShow={true}/>}            
           </div>
         </div>

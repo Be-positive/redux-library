@@ -6,24 +6,30 @@ import './Pagination.css';
 
 
 class BooksPagination extends Component {
+  
   constructor(props) {
+    /* console.log(props); */
     super(props);
     this.state = { activePage: 1 };
+      
   }
 
   handleSelect(eventKey) {
     this.setState({activePage: eventKey});
   }
 
-  componentDidUpdate(prevProps, prevState){    
+  componentDidUpdate(prevProps, prevState){        
     if(this.state.activePage !== prevState.activePage){
+      console.log(this)     
       this.props.fetchBooks(
-        !!this.props.searchQuery ? this.props.searchQuery : this.props.lastSearchQuery, /* `${this.state.book} ${this.state.subject}`, this.state.orderBy, */ this.props.resultsPerPage, this.state.activePage * this.props.resultsPerPage
-      );
+        !!this.props.searchQuery ? this.props.searchQuery : this.props.lastSearchQuery,  /* this.state.maxResult, */ this.props.resultsPerPage, /* this.props.startIndex, */ this.state.activePage * this.props.resultsPerPage, this.props.orderBy,
+        //здесь порядок имеет значение, а так же обозначение, некоторые, вроде maxResults не стоит обозначать!
+      )      
     }
   }
 
-  render(){    
+  render(){ 
+    console.log(this.props)     
     return(
       <Pagination
         prev
@@ -36,17 +42,19 @@ class BooksPagination extends Component {
         maxButtons={5}
         bsSize="small"
         activePage={this.state.activePage}
-        onSelect={this.handleSelect.bind(this)} />
+        onSelect={this.handleSelect.bind(this)}        
+        />
 
     )
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state, props){  
   return {
     books: state.books.all,
     lastSearchQuery: state.books.lastSearchQuery,
-    orderBy: state.oderBy,
+    orderBy: props.orderBy,    
+
   }
 }
 
