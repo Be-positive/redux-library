@@ -46,9 +46,10 @@ class BooksShow extends Component {
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state, props){
   return {
-    books: state.books.all    
+    books: state.books.all,
+    orderBy: props.orderBy,    
   }
 }
 

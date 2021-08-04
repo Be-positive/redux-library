@@ -31,8 +31,7 @@ class BooksPagination extends Component {
 
 function mapStateToProps(state, props){
   return {
-    books: state.books.all,
-    /* orderBy: state.orderBy, */
+    books: state.books.all,    
     orderBy: props.orderBy
   }
 }

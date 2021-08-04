@@ -2,9 +2,8 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import './BookDetail.css';
 
-const BookDetail = (props) => { 
-    console.log(props.book.volumeInfo.categories)
-    console.log(props.book)   
+const BookDetail = (props) => {     
+    console.log(props.book)       
     return (
         <div className='book'>
           <ul className='bookDetail' onClick={() => browserHistory.push(`/${props.resultNumber}`)}>
@@ -17,10 +16,8 @@ const BookDetail = (props) => {
                     <li> {props.book.volumeInfo.description} </li>
                     <li><a target='_blank' href={props.book.volumeInfo.infoLink}> read more/buy <i className="fas fa-arrow-right"></i></a> </li>
                 </ul>                
-            </li>
-            
-          </ul>
-    
+            </li>            
+          </ul>    
         </div>
           
     )

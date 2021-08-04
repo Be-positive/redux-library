@@ -18,6 +18,7 @@ class BookList extends Component {
     const bookDetails = searchResults.map((book, index) => {
       return (<BookRow key={`result_${index + 1}`} resultNumber={index + 1} book={book}/>);
     });
+    console.log(this.props.orderBy)
 
     return(
       <main>                            
@@ -27,11 +28,12 @@ class BookList extends Component {
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state, props){
   return {
     books: state.books.all,
     isFetching: state.books.isFetching,
-    error: state.books.error
+    error: state.books.error,
+    orderBy: props.orderBy,
   }
 }
 
